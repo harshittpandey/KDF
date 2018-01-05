@@ -1,0 +1,10 @@
+#about {
+	background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),  url('../images/topCover.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+body {
+	background-color: #daf0f0;
+}
