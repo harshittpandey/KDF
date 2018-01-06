@@ -14,52 +14,39 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 .mySlides {display:none}
 .w3-tag, .fa {cursor:pointer}
 .w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
+#kdflogo {
+	display: none;
+}
 </style>
 <body>
 <!-- Links (sit on top) -->
-<div class="w3-top w3-flat-wet-asphalt ">
 
 
-
-  <div class="w3-bar " id="myNavbar">
-
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+<div class="w3-top" style="background: linear-gradient(to right, '#DCDCDC' , white);">
+  <img src="./images/kdf-logo.jpg" id="kdflogo" style="position: absolute;left: 0;top: 0;width: 150px;z-index: 1">
+  <div class="w3-bar" id="myNavbar" >
+	<a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
-    
-      <a href="#" class="w3-button w3-bar-item">Home</a>
-    
-    
-      <a href="#contact" class="w3-button w3-bar-item w3-hide-small"><i class="fa fa-envelope"></i>Contact</a>
-    
-    
-      <a href="#about" class="w3-button w3-bar-item w3-hide-small"><i class="fa fa-user"></i>About Us</a>
-    
-    
-      <a href="#payment" class="w3-button w3-bar-item w3-hide-small"><i class="fa fa-credit-card"></i>Payment</a>
-    
-    
-      <a href="#donation" class="w3-button w3-bar-item w3-hide-small"><i class="fa fa-gift"></i>Donation</a>
-
-      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-      <i class="fa fa-search"></i>
-    </a>    
+ 	<a href="#about" class="w3-button w3-bar-item w3-hide-small" style="margin-left: 62%"><i class="fa fa-user"></i> ABOUT US</a>
+    <a href="#contact" class="w3-button w3-bar-item w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="#payment" class="w3-button w3-bar-item w3-hide-small"><i class="fa fa-credit-card"></i> PAYMENT</a>
+    <a href="#donation" class="w3-button w3-bar-item w3-hide-small"><i class="fa fa-gift"></i> DONATION</a>   
   </div>
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
     <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT US</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
     <a href="#payment" class="w3-bar-item w3-button" onclick="toggleFunction()">PAYMENT</a>
     <a href="#donation" class="w3-bar-item w3-button" onclick="toggleFunction()">DONATION</a>
-
-    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-
   </div>
-
-
-
-
 </div>
+
+<!-- background image -->
+<div>
+	<img src="./images/background.jpg" style="width: 100vw;margin-top: -80px">
+</div>
+
 
 <!-- Content -->
 <div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
@@ -290,10 +277,17 @@ function onClick(element) {
 window.onscroll = function() {myFunction()};
 function myFunction() {
     var navbar = document.getElementById("myNavbar");
+    var logo = document.getElementById("kdflogo");
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-flat-wet-asphalt";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-flat-wet-asphalt", "");
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+        logo.style.display = "none";
+    }
+    if(document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    	logo.style.display = "block";
+    }
+     else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+        logo.style.display = "none";
     }
 }
 
