@@ -17,24 +17,48 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 </style>
 <body>
 <!-- Links (sit on top) -->
-<div class="w3-top ">
-  <div class="w3-row w3-large w3-flat-wet-asphalt">
-    <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block">Home</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="#contact" class="w3-button w3-block">Contact</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="#about" class="w3-button w3-block">About Us</a>
-    </div>
-    <div class="w3-col s2">
-      <a href="#payment" class="w3-button w3-block">Payment</a>
-    </div>
-    <div class="w3-col s3">
-      <a href="#donation" class="w3-button w3-block">Donation</a>
-    </div>
+<div class="w3-top w3-flat-wet-asphalt ">
+
+
+
+  <div class="w3-bar " id="myNavbar">
+
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#" class="w3-button w3-bar-item">Home</a>
+    
+    
+      <a href="#contact" class="w3-button w3-bar-item w3-hide-small"><i class="fa fa-envelope"></i>Contact</a>
+    
+    
+      <a href="#about" class="w3-button w3-bar-item w3-hide-small"><i class="fa fa-user"></i>About Us</a>
+    
+    
+      <a href="#payment" class="w3-button w3-bar-item w3-hide-small"><i class="fa fa-credit-card"></i>Payment</a>
+    
+    
+      <a href="#donation" class="w3-button w3-bar-item w3-hide-small"><i class="fa fa-gift"></i>Donation</a>
+
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+      <i class="fa fa-search"></i>
+    </a>    
   </div>
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT US</a>
+    <a href="#payment" class="w3-bar-item w3-button" onclick="toggleFunction()">PAYMENT</a>
+    <a href="#donation" class="w3-bar-item w3-button" onclick="toggleFunction()">DONATION</a>
+
+    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+
+  </div>
+
+
+
+
 </div>
 
 <!-- Content -->
@@ -236,6 +260,51 @@ function showDivs(n) {
   }
   x[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " w3-white";
+}
+
+function myMap()
+{
+  myCenter=new google.maps.LatLng(41.878114, -87.629798);
+  var mapOptions= {
+    center:myCenter,
+    zoom:12, scrollwheel: false, draggable: false,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+  var marker = new google.maps.Marker({
+    position: myCenter,
+  });
+  marker.setMap(map);
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-flat-wet-asphalt";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-flat-wet-asphalt", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
 }
 </script>
 
